@@ -3,13 +3,15 @@ use gdnative::prelude::*;
 /// The HelloWorld "class"
 #[derive(NativeClass)]
 #[inherit(Node)]
-pub struct HelloWorld;
+pub struct HelloWorld {
+    counter: usize,
+}
 
 // You may add any number of ordinary `impl` blocks as you want. However, ...
 impl HelloWorld {
     /// The "constructor" of the class.
     fn new(_owner: &Node) -> Self {
-        HelloWorld
+        HelloWorld { counter: 0 }
     }
 }
 
@@ -30,6 +32,14 @@ impl HelloWorld {
         // The `godot_print!` macro works like `println!` but prints to the Godot-editor
         // output tab as well.
         godot_print!("Hello, world!");
+    }
+
+    #[export]
+    fn print_some_counter(&mut self, _owner: &Node, increment: bool) {
+        if increment {
+            self.counter += 1;
+        }
+        godot_print!("Counter: {}", self.counter);
     }
 }
 
