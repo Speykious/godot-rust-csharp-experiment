@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://HelloWorld.gdns" type="Script" id=1]
+[ext_resource path="res://csharp-side/SharpWorld.cs" type="Script" id=2]
 
-[node name="HelloWorld" type="Node"]
+[node name="SharpWorld" type="Node"]
+script = ExtResource( 2 )
+
+[node name="HelloWorld" type="Node" parent="."]
 script = ExtResource( 1 )
