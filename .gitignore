@@ -1,0 +1,7 @@
+# Rust stuff
+target/
+Cargo.lock
+
+# Godot stuff
+.mono/
+.import/
